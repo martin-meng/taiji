@@ -1,0 +1,100 @@
+body{
+    background-color:#666
+  }
+  
+  @keyframes spin{
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg);
+    }
+  }
+
+  
+  #taiji{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background: linear-gradient(to bottom, #fff 0%,#fff 50%,#000 50%,#000 100%); 
+    position: relative;
+    margin: 100px auto 20px;
+    animation: spin 3s linear 0s  infinite;
+  }
+/*
+
+animation定义和用法
+animation 属性是一个简写属性，用于设置六个动画属性：
+animation-name
+animation-duration
+animation-timing-function
+animation-delay
+animation-iteration-count
+animation-direction
+默认值：    none 0 ease 0 1 normal    
+
+注意！！！：请始终规定 animation-duration 属性，否则时长为 0，就不会播放动画了。
+
+语法
+
+animation: name duration timing-function delay iteration-count direction;
+
+animation-name                规定需要绑定到选择器的 keyframe 名称。。    
+animation-duration            规定完成动画所花费的时间，以秒或毫秒计。    
+animation-timing-function     规定动画的速度曲线。    
+animation-delay               规定在动画开始之前的延迟。    
+animation-iteration-count     规定动画应该播放的次数。（值：n次，infinite无限循环）    
+animation-direction           规定是否应该轮流反向播放动画。   
+
+animation-timing-function  的值：
+linear                   	动画从头到尾的速度是相同的。	测试
+ease                     	默认。动画以低速开始，然后加快，在结束前变慢。	测试
+ease-in	                  动画以低速开始。	测试
+ease-out                	动画以低速结束。	测试
+ease-in-out	              动画以低速开始和结束。	测试
+cubic-bezier(n,n,n,n)	    在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的数值。
+
+总结：
+根据上述属性，只需要根据具体情况设置animation-delay和animation-iteration-count即可。
+
+例如：
+
+
+div
+{
+animation:mymove 5s 5s infinite;
+-webkit-animation:mymove 5s 5s infinite; /* Safari 和 Chrome */
+
+  
+  #taiji::before{ /*利用元素的伪类特性*/
+    
+    content: '';  /* 很重要！！！ 伪类默认不出现，必须给一个content才可以出现 */
+    width: 20px; 
+    height: 20px;
+    border-radius: 50%;
+    background: #FFF;
+    position: absolute; /*套路:!!! 绝对定位后自动变为block */
+    top: 50px;
+    left: 0;
+    border: 40px solid #000; /*这里也可以用渐变，也可以用描边*/
+  }
+  
+  
+  #taiji::after{ /*利用元素的伪类特性*/
+    
+    content: '';  /* 很重要！！！ 伪类默认不出现，必须给一个content才可以出现 */
+    width: 20px; 
+    height: 20px;
+    border-radius: 50%;
+    background: #000;
+    position: absolute; /*套路:!!! 绝对定位后自动变为block */
+    top: 50px;
+    right: 0;
+    border: 40px solid #FFF;
+  }
+  
+
+  p{
+    color: white;
+    text-align: center;
+  }
